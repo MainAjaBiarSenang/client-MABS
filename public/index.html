@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
     <title>client-MABS</title>
   </head>
   <body>
@@ -13,5 +16,21 @@
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAdz71gUKGpqzVzQDQcptY0YC8NbXjFtQg",
+    authDomain: "main-aja-biar-senang.firebaseapp.com",
+    databaseURL: "https://main-aja-biar-senang.firebaseio.com",
+    projectId: "main-aja-biar-senang",
+    storageBucket: "",
+    messagingSenderId: "910646623086"
+  };
+  firebase.initializeApp(config);
+</script>
+
+
+
   </body>
 </html>
