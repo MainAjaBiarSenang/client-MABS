@@ -37,8 +37,8 @@
        
       </div>
       </div>
-      <div class="col s9 black" >
-        <!-- quetion here  -->c
+      <div class="col s9 " >
+        <question/>
       </div>
     </div>
 
@@ -52,11 +52,12 @@
 // @ is an alias to /src
 import navbarR from '@/components/navbarRoom.vue'
 import footerR from '@/components/footerRoom.vue'
+import question from '@/components/QuestionLayout.vue'
 
 export default {
   name: 'room',
   components: {
-    navbarR,footerR
+    navbarR,footerR,question
   }
 }
 </script>
