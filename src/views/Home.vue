@@ -10,7 +10,7 @@
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
 import User from '@/components/User.vue'
-import {mapActions} from 'vuex'
+import {mapActions,mapState} from 'vuex'
 
 export default {
   name: 'home',
@@ -18,9 +18,25 @@ export default {
     HelloWorld,
     User
   },
+  data(){
+    return {
+      username : null
+    }
+  },
+  created () {
+    this.getPlayers()
+  },
   methods :{
     ...mapActions([
-      
+      "addPlayer", "getPlayers"
+    ]),
+    addUser () {
+      this.addPlayer(this.username)
+    }
+  },
+  computed :{
+    ...mapState([
+      "username", 'players'
     ])
   }
 }
