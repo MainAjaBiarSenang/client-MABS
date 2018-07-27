@@ -10,19 +10,19 @@
                   <li class="collection pink-text"><i class="fas fa-heart"></i> : <span style="font-weight:600"> {{player.lifeCount}}</span></li>
                </ul>
             </div>
-            <div v-if="game === 'over'">
-               <p v-if="player.status === 'WINNER'"> 
+            <!-- <div>
+               <p > 
                  <a class="btn-floating btn-large pulse light-green accent-2" style="color:black;font-weight:500; width: 130px">
                      {{player.status}}
                   </a>
                </p>
-               <p v-else-if="player.status === 'LOSER'">
+               <p>
                   <span style="color:red; font-weight:500">
                      Don't give up just yet!
                   </span>
                </p>
 
-            </div>
+            </div> -->
          </div>
       </div>   
    </div>
@@ -36,13 +36,13 @@ export default{
             name: "A",
             score: 0,
             lifeCount: 2,
-            status: "WINNER"
+            status: ""
          },
          {
             name: "B",
             score: 0,
             lifeCount: 2,
-            status: "LOSER"
+            status: ""
          }],
          game : "over",
       }

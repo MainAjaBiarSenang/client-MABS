@@ -18,5 +18,32 @@ export default {
     HelloWorld,
     User
   },
+  data(){
+    return {
+      username : null,
+      roomname : null
+    }
+  },
+  created () {
+    this.getPlayers()
+  },
+  methods :{
+    ...mapActions([
+      "addPlayer", "getPlayers","createRoom"
+    ]),
+    addUser () {
+      this.addPlayer(this.username)
+    },
+    addRoom(){
+      this.createRoom(this.roomname)
+      console.log(this.roomname)
+    ]),
+    }
+  },
+  computed :{
+    ...mapState([
+      "username", 'players','room'
+    ])
+  }
 }
 </script>
