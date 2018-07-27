@@ -12,17 +12,12 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
-import {mapAction} from 'vuex'
 
 export default {
   name: 'home',
   components: {
     HelloWorld
   },
-  methods :{
-    ...mapAction([
-      
-    ])
-  }
+
 }
 </script>
