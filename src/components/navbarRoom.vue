@@ -1,11 +1,9 @@
 <template>
      <nav>
-          <div class="nav-wrapper grey lighten-1">
-            <a href="#" class="brand-logo grey-text text-darken-4">Room 1</a>
+          <div class="nav-wrapper blue lighten-1">
+            <h3 style="color:black; padding-top:5px; font-weight:600">Room 1</h3>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-              <li><a href="sass.html"></a></li>
-              <li><a href="badges.html"></a></li>
-              <li><a href="collapsible.html" class="grey-text text-darken-4">Exit Room</a></li>
+              <li><a href="collapsible.html" class="waves-effect waves-light btn" style="border-radius:100px; background-color:lightslategrey">Exit Room</a></li>
             </ul>
           </div>
         </nav>
