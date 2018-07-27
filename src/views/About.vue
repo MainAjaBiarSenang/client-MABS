@@ -6,14 +6,13 @@
       <div class="col s3 ">
         <PlayerProfile></PlayerProfile>
       </div>
-      <div class="col s9 " >
+      <div class="col s9">
         <question/>
+        
       </div>
     </div>
 
     <footerR/>
-
-
    </div>
 </template>
 
@@ -43,5 +42,6 @@ export default {
     ...mapState([
       "room"
     ])  }
+
 }
 </script>
