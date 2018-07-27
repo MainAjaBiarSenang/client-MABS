@@ -48,15 +48,27 @@ export default new Vuex.Store({
     getQuestion ({ commit }) {
       firebase.database().ref('QuestionList').on('value',(snapshot)=> {
         var questions = snapshot.val()
+        let randomized = []
+        let randomQuestion, index;
         // console.log(snapshot.val())
         var arrQuestions =[]
         for(var i in questions){
           arrQuestions.push(questions[i])
         }
-        let index = Math.floor(Math.random()*arrQuestions.length)
-        let randomQuestion = arrQuestions[index]
+        console.log(arrQuestions);
+        for(let i = 0; i < 10; i++){
+          index = Math.floor(Math.random()*arrQuestions.length)
+          randomQuestion= arrQuestions[index]
+          arrQuestions.splice(index,1);
+          randomized.push(randomQuestion);
+        }
         
-        commit('questions', randomQuestion)
+
+        console.log(randomized);
+
+
+        
+        commit('questions', randomized)
      })
     },
     createRoom(context,room){
