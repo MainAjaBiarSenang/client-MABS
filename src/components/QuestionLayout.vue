@@ -47,24 +47,31 @@ export default {
   },
   methods : {
     ...mapActions([
-      'getQuestion'
+      'getQuestion', 'updateData'
     ]),
     getAnswer : function(data, compare) {
       let idUser = localStorage.getItem('idUser')
 
-      if (data === compare.answer) {
+        console.log(data == compare.answer)
+        console.log("---", typeof(data))
+        console.log("!!!!", typeof(compare.answer))
+      if (data == compare.answer) {
         let dataTrue = {
           idUser,
           value : true
         }
-        console.log(dataTrue)
+
+        // console.log(data === compare.answer)
+        this.updateData(dataTrue)
       }
       else {
         let dataFalse = {
           idUser,
           value : false
         }
-        console.log(dataFalse)
+        this.updateData(dataFalse)
+      //  console.log(data === compare.answer)
+        // console.log(dataFalse)
       }
       console.log("player answer : ",data, ", real answer :", compare.answer)
     }
