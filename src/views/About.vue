@@ -1,7 +1,7 @@
 <template>
     <div>
         <navbarR/>
-        
+
      <div class="row">
       <div class="col s3 ">
         <!-- Grey navigation panel -->
@@ -34,7 +34,7 @@
       </ul>
       </div>
         </div>
-       
+
       </div>
       </div>
       <div class="col s9 " >
@@ -53,11 +53,26 @@
 import navbarR from '@/components/navbarRoom.vue'
 import footerR from '@/components/footerRoom.vue'
 import question from '@/components/QuestionLayout.vue'
+import {mapActions,mapState} from 'vuex'
 
 export default {
   name: 'room',
   components: {
     navbarR,footerR,question
+  },
+  methods :{
+    ...mapActions([
+      "getRoomBeer","getRoomTexas",
+    ])
+  },
+  created (){
+    this.getRoomBeer()
+    this.getRoomTexas()
+  },
+  computed : {
+    ...mapState([
+      "room"
+    ])
   }
 }
 </script>

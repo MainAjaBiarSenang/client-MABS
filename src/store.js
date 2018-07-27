@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+import router from './router'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -27,6 +27,7 @@ export default new Vuex.Store({
       })
         .then(result => {
           localStorage.setItem('idUser',result.key)
+          router.push('/listroom')
           // console.log(result.key)
         })
         .catch(err => {
@@ -83,7 +84,13 @@ export default new Vuex.Store({
             })
             .then((dataRoom)=>{
               // firebase.database().ref('Lobby/').child('Beer Hall Room').update()
-              console.log(dataRoom)
+              firebase.database().ref('Lobby/Beer Hall Room/PlayerCount').on('value',(snapshots)=>{
+                var count =snapshots.val()
+                count+=1
+                console.log("ini count========",typeof count)
+              })
+              // console.log(dataRoom)
+              router.push('/room')
             })
           }
         }
@@ -101,7 +108,12 @@ export default new Vuex.Store({
               life : data[i].life
             })
             .then((dataRoom)=>{
-              console.log(dataRoom)
+              firebase.database().ref('Lobby/California Room/PlayerCount').on('value',(snapshots)=>{
+                var count =snapshots.val()
+                count+=1
+                console.log("ini count========",typeof count)
+              })
+                router.push('/room')
             })
           }
         }
@@ -119,7 +131,13 @@ export default new Vuex.Store({
               life : data[i].life
             })
             .then((dataRoom)=>{
-              console.log(dataRoom)
+              // console.log(dataRoom)
+              firebase.database().ref('Lobby/Panama Room/PlayerCount').on('value',(snapshots)=>{
+                var count =snapshots.val()
+                count+=1
+                console.log("ini count========",typeof count)
+              })
+                router.push('/room')
             })
           }
         }
@@ -137,11 +155,42 @@ export default new Vuex.Store({
               life : data[i].life
             })
             .then((dataRoom)=>{
-              console.log(dataRoom)
+              // console.log(dataRoom)
+              firebase.database().ref('Lobby/Texas Room/PlayerCount').on('value',(snapshots)=>{
+                var count =snapshots.val()
+                count+=1
+                console.log("ini count========",typeof count)
+              })
+                router.push('/room')
             })
           }
         }
       })
-    }
+    },
+    getRoomBeer ({ commit }) {
+      firebase.database().ref('Lobby').child('Beer Hall Room').on('value',(snapshot)=> {
+        var rooms = snapshot.val()
+        console.log(snapshot.val())
+        var arrRoom =[]
+        for(var i in rooms){
+          // console.log(data[i].name)
+          arrRoom.push([i])
+        }
+        commit('room', arrRoom)
+     })
+   },
+   getRoomTexas ({ commit }) {
+     firebase.database().ref('Lobby').child('Texas Room').on('value',(snapshot)=> {
+       var rooms = snapshot.val()
+       console.log(snapshot.val())
+       var arrRoom =[]
+       for(var i in rooms){
+         // console.log(data[i].name)
+         arrRoom.push([i])
+       }
+       commit('room', arrRoom)
+    })
+  }
+
   }
 })
