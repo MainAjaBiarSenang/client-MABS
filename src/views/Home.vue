@@ -20,7 +20,8 @@ export default {
   },
   data(){
     return {
-      username : null
+      username : null,
+      roomname : null
     }
   },
   created () {
@@ -28,15 +29,20 @@ export default {
   },
   methods :{
     ...mapActions([
-      'addPlayer', 'getPlayers'
+      "addPlayer", "getPlayers","createRoom"
     ]),
     addUser () {
       this.addPlayer(this.username)
+    },
+    addRoom(){
+      this.createRoom(this.roomname)
+      console.log(this.roomname)
+    ]),
     }
   },
   computed :{
     ...mapState([
-      'username', 'players'
+      "username", 'players','room'
     ])
   }
 }
