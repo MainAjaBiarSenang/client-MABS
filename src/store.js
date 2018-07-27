@@ -7,11 +7,15 @@ export default new Vuex.Store({
   state: {
    username :'',
    players : [],
-   room : []
+   room : [],
+   questions : []
   },
   mutations: {
     players (state, payload) {
       state.players = payload
+    },
+    questions (state, payload) {
+      state.questions = payload
     }
   },
   actions: {
@@ -39,6 +43,20 @@ export default new Vuex.Store({
           arrData.push([i])
         }
         commit('players', arrData)
+     })
+    },
+    getQuestion ({ commit }) {
+      firebase.database().ref('QuestionList').on('value',(snapshot)=> {
+        var questions = snapshot.val()
+        // console.log(snapshot.val())
+        var arrQuestions =[]
+        for(var i in questions){
+          arrQuestions.push(questions[i])
+        }
+        let index = Math.floor(Math.random()*arrQuestions.length)
+        let randomQuestion = arrQuestions[index]
+        
+        commit('questions', randomQuestion)
      })
     },
     createRoom(context,room){

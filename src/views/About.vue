@@ -21,7 +21,6 @@
           <a href="#">This is a link</a>
         </div>
       </div>
-
         <!-- Grey navigation panel -->
          <div class="card small white">
         <div class="card-content grey-text text-darken-4">
@@ -37,14 +36,13 @@
        
       </div>
       </div>
-      <div class="col s9 " >
+      <div class="col s9">
         <question/>
+        
       </div>
     </div>
 
     <footerR/>
-
-
    </div>
 </template>
 
@@ -54,10 +52,13 @@ import navbarR from '@/components/navbarRoom.vue'
 import footerR from '@/components/footerRoom.vue'
 import question from '@/components/QuestionLayout.vue'
 
+
 export default {
   name: 'room',
   components: {
-    navbarR,footerR,question
-  }
+    navbarR,
+    footerR,
+    question
+  },
 }
 </script>
