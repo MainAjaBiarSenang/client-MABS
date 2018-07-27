@@ -1,5 +1,5 @@
 <template>
-     <footer class="page-footer grey lighten-1">
+     <footer class="page-footer blue accent-3">
           <div class="container ">
             <div class="row">
               <div class="col l6 s12">
@@ -18,9 +18,13 @@
             </div>
           </div>
           <div class="footer-copyright grey-text text-darken-4">
-            <div class="container">
-            © 2018 Copyright Text
-            <a class="grey-text text-darken-4 right" href="#!">More Info</a>
+            <div class="container" style="text-align: center">
+              <span style="font-weight:700">
+                © 2018 Copyright of Main Aja Biar Senang (MABS)<br>
+              </span>
+              Created by the joint effort of: <br>
+              🐵 Airin, Fadli, Fitri, Panggih 🐵
+            <!-- <a class="grey-text text-darken-4 right" href="#!">More Info</a> -->
             </div>
           </div>
         </footer>
