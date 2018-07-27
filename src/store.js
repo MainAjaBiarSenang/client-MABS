@@ -107,6 +107,30 @@ export default new Vuex.Store({
 
       })
     },
+    updateData ({ commit }, payload) {
+      console.log('ini di updatedataStore' , payload)
+      firebase.database().ref('/users/' + payload.idUser).once('value')
+      .then(function(snapshot) {
+        console.log(payload.value)
+        console.log(snapshot.val().score)
+        if (payload.value == true) {
+          firebase.database().ref('users/' + payload.idUser).set({
+            life : snapshot.val().life,
+            score : snapshot.val().score + 10,
+            name : snapshot.val().name
+          })
+          console.log('hasil tambah')
+        }
+        else {
+          firebase.database().ref('users/' + payload.idUser).set({
+            name : snapshot.val().name,
+            life : snapshot.val().life - 1,
+            score : snapshot.val().score,
+          })
+        }
+        console.log(snapshot.val())
+      });
+    }
     joinRoomBeer(context){
       var user = localStorage.getItem('idUser')
       firebase.database().ref('users/').on('value',(snapshot)=>{
@@ -227,6 +251,5 @@ export default new Vuex.Store({
        commit('room', arrRoom)
     })
   }
-
   }
 })

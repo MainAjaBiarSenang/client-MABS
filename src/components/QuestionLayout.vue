@@ -52,7 +52,7 @@ export default {
   },
   methods : {
     ...mapActions([
-      'getQuestion'
+      'getQuestion', 'updateData'
     ]),
     getAnswer : function(data, compare) {
       let idUser = localStorage.getItem('idUser')
@@ -64,6 +64,7 @@ export default {
             value : true
           }
           console.log(dataTrue)
+          this.updateData(dataTrue)
           this.clickCount++;
         }
         else {
@@ -73,6 +74,7 @@ export default {
           }
           console.log(dataFalse)
           this.clickCount++;
+          this.updateData(dataFalse)
         }
       }
       localStorage.setItem("clicked", "true")

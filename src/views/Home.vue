@@ -10,7 +10,7 @@
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
 import User from '@/components/User.vue'
-import {mapActions,mapState} from 'vuex'
+
 
 export default {
   name: 'home',
