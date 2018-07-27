@@ -38,6 +38,7 @@ export default {
       listquestion: {},
       index : 0,
       clickCount: 0,
+      answer: '',
     }
   },
   computed : {
@@ -75,6 +76,7 @@ export default {
         }
       }
       localStorage.setItem("clicked", "true")
+      this.answer = compare[self.index].answer;
       console.log("player answer : ",data, ", real answer :", compare[self.index].answer)
      
     }
@@ -84,6 +86,7 @@ export default {
       let self = this;
       if(this.clickCount > 0){
         if(self.clickCount === 2){
+          alert("The correct answer is: " + self.answer)
           self.index++;
           self.clickCount = 0;
         }
