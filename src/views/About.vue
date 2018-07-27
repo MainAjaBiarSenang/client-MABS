@@ -8,8 +8,9 @@
       </div>
       <div class="col s9">
         <question/>
-        
       </div>
+    </div>
+    <div class="row">
     </div>
 
     <footerR/>
