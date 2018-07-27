@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
       <div class="row">
       <div class="input-field col s6">
       <input value="Alvin" id="first_name2" v-model="username" type="text" class="validate">
@@ -14,23 +15,38 @@
 
       <br><br>
 
+=======
+  <div class="row">
+    <div class="col s12 m4 l2"></div>
+    <div class="col s12 m4 l8"><User/></div>
+    <div class="col s12 m4 l2"></div>
+>>>>>>> 69944c75757a5e583103227942ce50e5def9e436
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
+<<<<<<< HEAD
+=======
+import User from '@/components/User.vue'
+>>>>>>> 69944c75757a5e583103227942ce50e5def9e436
 import {mapActions,mapState} from 'vuex'
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
+    HelloWorld,
+    User
   },
   data(){
     return {
+<<<<<<< HEAD
       username : null,
       roomname : null
+=======
+      username : null
+>>>>>>> 69944c75757a5e583103227942ce50e5def9e436
     }
   },
   created () {
@@ -38,6 +54,7 @@ export default {
   },
   methods :{
     ...mapActions([
+<<<<<<< HEAD
       "addPlayer", "getPlayers","createRoom"
     ]),
     addUser () {
@@ -46,11 +63,21 @@ export default {
     addRoom(){
       this.createRoom(this.roomname)
       console.log(this.roomname)
+=======
+      "addPlayer", "getPlayers"
+    ]),
+    addUser () {
+      this.addPlayer(this.username)
+>>>>>>> 69944c75757a5e583103227942ce50e5def9e436
     }
   },
   computed :{
     ...mapState([
+<<<<<<< HEAD
       "username", 'players','room'
+=======
+      "username", 'players'
+>>>>>>> 69944c75757a5e583103227942ce50e5def9e436
     ])
   }
 }

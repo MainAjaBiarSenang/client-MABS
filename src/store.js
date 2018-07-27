@@ -7,14 +7,21 @@ export default new Vuex.Store({
   state: {
    username :'',
    players : [],
+<<<<<<< HEAD
    rooms: []
+=======
+   room : []
+>>>>>>> 69944c75757a5e583103227942ce50e5def9e436
   },
   mutations: {
     players (state, payload) {
       state.players = payload
+<<<<<<< HEAD
     },
     room(state,room){
       state.rooms = room
+=======
+>>>>>>> 69944c75757a5e583103227942ce50e5def9e436
     }
   },
   actions: {
@@ -27,8 +34,12 @@ export default new Vuex.Store({
       })
         .then(result => {
           localStorage.setItem('idUser',result.key)
+<<<<<<< HEAD
           router.push('/listroom')
           // console.log(result.key)
+=======
+          console.log(result.key)
+>>>>>>> 69944c75757a5e583103227942ce50e5def9e436
         })
         .catch(err => {
           console.log(err)
@@ -40,6 +51,7 @@ export default new Vuex.Store({
         console.log(snapshot.val())
         var arrData =[]
         for(var i in data){
+<<<<<<< HEAD
           // console.log(data[i].name)
           arrData.push([i])
         }
@@ -68,7 +80,17 @@ export default new Vuex.Store({
           }else{
             console.log('no player')
           }
+=======
+          arrData.push([i])
+>>>>>>> 69944c75757a5e583103227942ce50e5def9e436
         }
+        commit('players', arrData)
+     })
+    },
+    createRoom(context,room){
+
+      firebase.database().ref('room/').push({
+
       })
     },
     joinRoomBeer(context){
