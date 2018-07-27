@@ -6,14 +6,13 @@
       <div class="col s3 ">
         <PlayerProfile></PlayerProfile>
       </div>
-      <div class="col s9 " >
+      <div class="col s9">
         <question/>
+        
       </div>
     </div>
 
     <footerR/>
-
-
    </div>
 </template>
 
@@ -26,7 +25,10 @@ import PlayerProfile from '@/components/PlayerProfile.vue'
 export default {
   name: 'room',
   components: {
-    navbarR,footerR,question,PlayerProfile
+    navbarR,
+    footerR,
+    question,
+    PlayerProfile
   }
 }
 </script>

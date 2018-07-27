@@ -28,7 +28,7 @@ export default {
   },
   methods :{
     ...mapActions([
-      "addPlayer", "getPlayers"
+      'addPlayer', 'getPlayers'
     ]),
     addUser () {
       this.addPlayer(this.username)
@@ -36,7 +36,7 @@ export default {
   },
   computed :{
     ...mapState([
-      "username", 'players'
+      'username', 'players'
     ])
   }
 }
