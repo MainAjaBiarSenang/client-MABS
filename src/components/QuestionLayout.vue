@@ -14,7 +14,7 @@
               <div class="row">
                 <div class="arrayQues" v-for="(eachAnswer, index) in questions[index].answerList.split('[').join('').split(']').join('').split(',')" :key="index">
                 <!-- <div class="arrayQues" v-for="(eachAnswer, index) in questions.answerList.split('[').join('').split(']').join('').split(',')" :key="index"> -->
-                  <p :disabled="isDisabled" class="blue darken-1 waves-effect waves-light btn-large col s8 offset-s2" style="word-wrap : break-word; height:auto" @click="getAnswer(eachAnswer, questions)">{{ eachAnswer }}</p>
+                  <p class="blue darken-1 waves-effect waves-light btn-large col s8 offset-s2" style="word-wrap : break-word; height:auto" @click="getAnswer(eachAnswer, questions)">{{ eachAnswer }}</p>
                 </div>
               </div>
             </div>
@@ -39,6 +39,7 @@ export default {
       index : 0,
       clickCount: 0,
       answer: '',
+      playerAns:''
     }
   },
   computed : {
@@ -48,7 +49,7 @@ export default {
   },
   created() {
     this.getQuestion();
-    localStorage.setItem("clicked", false);
+    localStorage.setItem("clicked", "false");
   },
   methods : {
     ...mapActions([
@@ -57,7 +58,8 @@ export default {
     getAnswer : function(data, compare) {
       let idUser = localStorage.getItem('idUser')
       let self = this;
-      if(localStorage.getItem("clicked") === false){
+      // if(localStorage.getItem("clicked") === "false"){
+        self.playerAns = data;
         if (data == compare[self.index].answer) {
           let dataTrue = {
             idUser,
@@ -76,11 +78,14 @@ export default {
           this.clickCount++;
           this.updateData(dataFalse)
         }
-      }
-      localStorage.setItem("clicked", "true")
+      // }
       this.answer = compare[self.index].answer;
-      console.log("player answer : ",data, ", real answer :", compare[self.index].answer)
-     
+      console.log("player answer : ",self.playerAns, ", real answer :", compare[self.index].answer)
+      this.changeClick();
+    },
+    changeClick(){
+      localStorage.setItem("clicked", "true")
+      console.log(this.clickCount);
     }
   },
   watch:{

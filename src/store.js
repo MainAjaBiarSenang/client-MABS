@@ -130,7 +130,7 @@ export default new Vuex.Store({
         }
         console.log(snapshot.val())
       });
-    }
+    },
     joinRoomBeer(context){
       var user = localStorage.getItem('idUser')
       firebase.database().ref('users/').on('value',(snapshot)=>{
